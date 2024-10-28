@@ -1,4 +1,28 @@
-# WireGuard Easy
+# WireGuard Easy [ARCHIVE TO AVOID USING FUCKING DOCKER]
+
+##
+DOCKERLESS INSTRUCTIONS:
+If you don't want to use docker, then install wireguard, nodejs and npm from your package manager and then, run the following.
+
+echo net.ipv4.ip_forward=1 >> /etc/sysctl.conf
+echo net.ipv4.conf.all.src_valid_mark=1 >> /etc/sysctl.conf
+sysctl -p
+git clone https://github.com/jonylentzmc/wg-easy-archive
+cd wg-easy-archive
+mv src /app
+cd /app
+npm ci --production
+cp node_modules ..
+ufw allow 51821/tcp # (webui) Only for users of the UFW firewall
+ufw allow 51820/udp # (wireguard listening port) Only for users of the UFW firewall
+cd -
+curl -Lo /etc/systemd/system/wg-easy.service https://raw.githubusercontent.com/jonylentzmc/wg-easy-archive/production/wg-easy.service
+nano /etc/systemd/system/wg-easy.service # Replace everything that is marked as 'REPLACEME' and tweak it to your liking
+systemctl daemon-reload
+systemctl enable --now wg-easy.service
+systemctl start wg-easy.service
+
+
 
 [![Build & Publish Docker Image to Docker Hub](https://github.com/wg-easy/wg-easy/actions/workflows/deploy.yml/badge.svg?branch=production)](https://github.com/wg-easy/wg-easy/actions/workflows/deploy.yml)
 [![Lint](https://github.com/wg-easy/wg-easy/actions/workflows/lint.yml/badge.svg?branch=master)](https://github.com/wg-easy/wg-easy/actions/workflows/lint.yml)
