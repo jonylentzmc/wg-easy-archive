@@ -1,7 +1,8 @@
-# WireGuard Easy [ARCHIVE TO AVOID USING FUCKING DOCKER]
+# WireGuard Easy. 
+# DO NOT USE THIS FORK, THIS IS AN UNMANTAINED FORK FOR PERSONAL USE!
 
-##
-DOCKERLESS INSTRUCTIONS:
+## [ARCHIVE TO AVOID USING DOCKER]
+## DOCKERLESS INSTRUCTIONS:
 If you don't want to use docker, then install wireguard, nodejs and npm from your package manager and then, run the following.
 ```
 echo net.ipv4.ip_forward=1 >> /etc/sysctl.conf
