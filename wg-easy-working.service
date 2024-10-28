@@ -1,0 +1,16 @@
+[Unit]
+Description=wg-easy
+After=network.target
+
+[Service]
+Type=simple
+Environment="PATH=/usr/bin:/usr/local/bin:/usr/sbin"
+EnvironmentFile=/root/.env
+WorkingDirectory=/app/
+ExecStart=/bin/bash -c "node server.js"
+Restart=always
+RestartSec=10
+
+
+[Install]
+WantedBy=multi-user.target
