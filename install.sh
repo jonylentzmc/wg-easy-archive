@@ -1,7 +1,8 @@
 #!/bin/sh
 apt-get update
-# installs wireguard, duh
+# installs wireguard, npm
 apt-get install wireguard -y
+apt-get install npm -y
 # installs nvm (Node Version Manager)
 /bin/bash -c "$(curl https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh)"
 export NVM_DIR="$HOME/.nvm"
@@ -23,8 +24,9 @@ cd wg-easy-archive
 # move folders and compile
 mv src /app
 cd /app
-npm ci --production
-cp node_modules ..
+# npm ci --production
+npm ci --omit=dev
+cp -r node_modules ..
 npm audit fix
 # set firewall rules
 ufw allow 51821/tcp # (webui) Only for users of the UFW firewall
