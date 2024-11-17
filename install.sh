@@ -3,7 +3,10 @@ apt-get update
 # installs wireguard, duh
 apt-get install wireguard -y
 # installs nvm (Node Version Manager)
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+/bin/bash -c "$(curl https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh)"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # download and install Node.js (you may need to restart the terminal)
 nvm install 18
 # verifies the right Node.js version is in the environment
@@ -22,6 +25,7 @@ mv src /app
 cd /app
 npm ci --production
 cp node_modules ..
+npm audit fix
 # set firewall rules
 ufw allow 51821/tcp # (webui) Only for users of the UFW firewall
 ufw allow 51820/udp # (wireguard listening port) Only for users of the UFW firewall
