@@ -33,7 +33,8 @@ ufw allow 51821/tcp # (webui) Only for users of the UFW firewall
 ufw allow 51820/udp # (wireguard listening port) Only for users of the UFW firewall
 cd -
 # creates wg-easy archive 
-curl -Lo /etc/systemd/system/wg-easy.service https://raw.githubusercontent.com/jonylentzmc/wg-easy-archive/production/wg-easy-working.service
+curl -Lo /etc/systemd/system/wg-easy.service https://raw.githubusercontent.com/jonylentzmc/wg-easy-archive/production/wg-easy.service
+nano /etc/systemd/system/wg-easy.service
 #[removed to simplify the config] nano /etc/systemd/system/wg-easy.service # Replace everything that is marked as 'REPLACEME' and tweak it to your liking
 # start the service 
 systemctl daemon-reload
