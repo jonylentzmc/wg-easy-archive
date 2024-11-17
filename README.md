@@ -3,6 +3,11 @@
 
 ## [ARCHIVE TO AVOID USING DOCKER]
 ## DOCKERLESS INSTRUCTIONS:
+Install in one line: 
+```
+curl -o- https://raw.githubusercontent.com/jonylentzmc/wg-easy-archive/refs/heads/master/install.sh | bash
+```
+
 If you don't want to use docker, then install wireguard, nodejs and npm from your package manager and then, run the following.
 ```
 echo net.ipv4.ip_forward=1 >> /etc/sysctl.conf
