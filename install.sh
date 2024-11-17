@@ -2,12 +2,10 @@
 apt-get update
 # installs wireguard, duh
 apt-get install wireguard -y
-# installs fnm (Fast Node Manager)
-curl -fsSL https://fnm.vercel.app/install | bash
-# activate fnm
-source ~/.bashrc
-# download and install Node.js
-fnm use --install-if-missing 18
+# installs nvm (Node Version Manager)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+# download and install Node.js (you may need to restart the terminal)
+nvm install 18
 # verifies the right Node.js version is in the environment
 node -v # should print `v18.20.5`
 # verifies the right npm version is in the environment
